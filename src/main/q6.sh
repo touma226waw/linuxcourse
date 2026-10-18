@@ -9,9 +9,9 @@ output=${2:?需要输出目录}
 #创建安装
 mkdir -p "$output/sysroot"
 dpkg --root="$output/sysroot" --force-not-root -i "$input/aim-sentry-tools.deb"
-#提取包名
+#读取包名
 package=$(dpkg-deb -f "$input/aim-sentry-tools.deb" Package)
-#检查包名
+#查询包名
 dpkg-query \
     --admindir="$output/sysroot/var/lib/dpkg" \
     -W \
